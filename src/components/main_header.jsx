@@ -2,7 +2,7 @@
  * Created by kevin gosse on 04/12/2015.
  */
 import React from 'react';
-import MainNav from './main_nav';
+import MainNav from './main_nav.jsx';
 
 class MainHeader extends React.Component{
     render(){
