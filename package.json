@@ -4,14 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./node_modules/mocha/bin/mocha  --compilers js:babel-core/register --reporter dot --recursive"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "babel": "^6.3.13",
     "babel-core": "5.8.14",
     "babel-loader": "5.3.2",
     "css-loader": "^0.23.0",
+    "expect.js": "^0.3.1",
+    "mocha": "^2.3.4",
     "moment": "^2.10.6",
     "node-sass": "^3.4.2",
     "numeral": "^1.5.3",
