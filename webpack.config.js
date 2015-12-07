@@ -16,7 +16,15 @@ module.exports = {
     output: {
         filename: '[name].js',
         path: path.join(__dirname, 'public'),
-        publicPath: '/public/'
+        publicPath: 'http://localhost:8080/public/'
+    },
+    devServer: {
+        proxy: {
+            '*': {
+                target: 'http://localhost:9090/',
+                secure: false
+            }
+        }
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),

@@ -5,20 +5,38 @@ import React from 'react';
 import PageHeader from './page_header.jsx';
 import OrdersTable from './orders/orders_table.jsx';
 import { toTitleCase } from '../lib/formatters';
-import ORDERS_DATA from '../data/orders';
+import OrdersStore from '../stores/orders_store';
+import OrdersActions from '../actions/orders_actions';
 
 const STATUSES = ['all', 'open', 'shipped'];
 
-class Orders extends React.Component{
-    constructor(props){
+class Orders extends React.Component {
+    constructor(props) {
         super(props);
-        this.state = {selectedStatus: 'all'};
+
+        this.onChange = this.onChange.bind(this);
+
+        this.state = OrdersStore.getState();
+        this.state.selectedStatus = 'all';
     }
 
-    render(){
+    componentDidMount() {
+        OrdersStore.listen(this.onChange);
+        OrdersActions.fetchOrders();
+    }
+
+    componentWillUnmount() {
+        OrdersStore.unlisten(this.onChange);
+    }
+
+    onChange(state) {
+        this.setState(state);
+    }
+
+    render() {
         const { selectedStatus } = this.state;
 
-        const statuses = STATUSES.map((status, i)=>{
+        const statuses = STATUSES.map((status, i) => {
             const className = status === selectedStatus ? 'selected status' : 'status';
             return (
                 <a key={i} className={className} onClick={this.handleStatusClick.bind(this, status)}>
@@ -27,25 +45,25 @@ class Orders extends React.Component{
             );
         });
 
-        let orders = ORDERS_DATA;
-        if (selectedStatus !== 'all'){
-            orders = ORDERS_DATA.filter((order)=>{
+        let orders = this.state.orders;
+        if (selectedStatus !== 'all') {
+            orders = orders.filter((order) => {
                 return order.orderStatus === selectedStatus;
-            })
+            });
         }
 
         return (
-            <div className="orders">
+            <div className='orders'>
                 <PageHeader>
                     <h1>Orders</h1>
-                    <nav className="status-nav">{statuses}</nav>
+                    <nav className='status-nav'>{statuses}</nav>
                 </PageHeader>
-                <OrdersTable orders={orders} />
+                <OrdersTable orders={orders}/>
             </div>
-        )
+        );
     }
 
-    handleStatusClick(status){
+    handleStatusClick(status) {
         this.setState({ selectedStatus: status });
     }
 }
