@@ -1,11 +1,12 @@
 import alt from '../alt';
+import immutableUtil from 'alt/utils/ImmutableUtil';
 import Immutable from 'immutable';
 import OrdersActions from '../actions/orders_actions';
 import parseOrders from '../utils/parse_orders';
 
 class OrdersStore {
     constructor() {
-        this.orders = [];
+        this.orders = Immutable.List();
         this.selectedStatus = 'all';
         this.amountFilter = null;
 
@@ -34,4 +35,4 @@ class OrdersStore {
     }
 }
 
-export default alt.createStore(OrdersStore);
+export default alt.createStore(immutableUtil(OrdersStore));
