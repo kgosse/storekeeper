@@ -6,6 +6,15 @@ class OrdersActions {
         this.dispatch(orders);
     }
 
+    updateSelectedStatus(status) {
+        this.dispatch(status);
+    }
+
+    updateAmountFilter(amount) {
+        this.dispatch(amount);
+    }
+
+
     fetchOrders() {
         this.dispatch([]);
         OrdersFetcher.fetch()
