@@ -3,9 +3,21 @@
  */
 require('babel-core/polyfill');
 require('./styles/main.scss');
+
 import React from 'react';
-import ReactDom from 'react-dom';
+import ReactDOM from 'react-dom';
+import { Router, Route, IndexRoute } from 'react-router';
+
 import App from './components/App.jsx';
+import Dashboard from './components/Dashboard.jsx';
+import Orders from './components/Orders.jsx';
+import createBrowserHistory from 'history/lib/createBrowserHistory';
 
-ReactDom.render(<App />, document.querySelector("#app"));
-
+ReactDOM.render((
+    <Router history={createBrowserHistory()}>
+        <Route path="/" component={App}>
+            <Route path="dashboard" component={Dashboard}/>
+            <Route path="orders" component={Orders}/>
+        </Route>
+    </Router>
+), document.querySelector('#app'));
