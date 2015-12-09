@@ -8,7 +8,7 @@ It is a simple Single Page App with two menu items. The Orders menu item shows t
 ## Summary
 
 * [Installation](#installation)
-* [What I have learned](#What-I-have-learned)
+* [What I have learned](#what-i-have-learned)
 * [Technologies](#technologies)
 
 ### Installation
