@@ -12,7 +12,6 @@ class MainNav extends React.Component{
             <nav className='main-nav'>
                 <Link to='/dashboard' activeStyle={ACTIVE}>Dashboard</Link>
                 <Link to='/orders' activeStyle={ACTIVE}>Orders</Link>
-                <Link to='/catalog' activeStyle={ACTIVE}>Catalog</Link>
             </nav>
         )
     }
