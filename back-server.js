@@ -19,6 +19,10 @@ app.get('/orders.json', (req, res) => {
     res.sendFile(__dirname + '/data/orders.json');
 });
 
+app.get('/sales_stats.json', (req, res) => {
+    res.sendFile(__dirname + '/data/sales_stats.json');
+});
+
 app.get('/orders', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });

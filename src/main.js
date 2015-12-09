@@ -16,6 +16,7 @@ import createBrowserHistory from 'history/lib/createBrowserHistory';
 ReactDOM.render((
     <Router history={createBrowserHistory()}>
         <Route path="/" component={App}>
+            <IndexRoute component={Orders}/>
             <Route path="dashboard" component={Dashboard}/>
             <Route path="orders" component={Orders}/>
         </Route>
