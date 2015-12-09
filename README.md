@@ -1,5 +1,5 @@
 # Synopsis
-It is a simple Single Page App with two menu items. The Orders menu item shows the list of orders with filtering possibility. The dashboard contains the a chart made with the orders.
+It is a simple Single Page App with two menu items. The Orders menu item shows the list of orders with filtering possibilities. The dashboard contains a chart made with the orders.
 
 ![alt text][storekeeper]
 
