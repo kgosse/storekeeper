@@ -22,8 +22,9 @@ It is a simple Single Page App with two menu items. The Orders menu item shows t
     > babel-node back-server
 </pre>
 
-After that, you then need to open your browser on: [localhost:8080](http://localhost:8080/)
-If something went wrong, it's because you may have use nodejs version 4 or above.
+After that, you then need to open your browser on: [localhost:8080](http://localhost:8080/).
+
+If something went wrong, it's because you may have to use nodejs version 4 or above.
 
 ### What I have learned
 
